@@ -1,4 +1,10 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { ReportAggregator } from 'wdio-html-nice-reporter';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let reportAggregator
 export const config = {
@@ -24,11 +30,11 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        'C:/js_automation_testing/practice_08/src/features/**/*.feature'
+        path.resolve(__dirname, '../../features/**/*.feature')
     ],
     // Patterns to exclude.
     exclude: [
-        'C:/js_automation_testing/practice_08/src/specs/**/*.js'
+        //"./../../specs/**.js"
     ],
     
     //
@@ -64,7 +70,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'debug',
     //
     // Set specific log levels per logger
     // loggers:
@@ -130,7 +136,7 @@ export const config = {
     // reporters: ['dot'],
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ["C:/js_automation_testing/practice_08/src/specs/**/*.js"],
+        require: [path.resolve(__dirname, '../../tests/**/*.js')],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -155,7 +161,7 @@ export const config = {
         ignoreUndefinedDefinitions: false,
       },
       paths: {
-        features: 'C:/js_automation_testing/practice_08/src/features/**/*.feature',
+        //features: "./../../features/*.features",
       },
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

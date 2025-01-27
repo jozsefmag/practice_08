@@ -1,5 +1,5 @@
 {
-  "name": "practice_04",
+  "name": "practice_08",
   "type": "module",
   "devDependencies": {
     "@cucumber/cucumber": "^11.2.0",
@@ -13,7 +13,9 @@
     "wdio-html-reporter": "^1.0.2"
   },
   "scripts": {
-    "test": "wdio run src/core/config/wdio.conf.js"
+    "test": "wdio run src/core/config/wdio.conf.js",
+    "test:addItem": "wdio run src/core/config/wdio.conf.js --cucumberOpts.tags=\"@add_item\"",
+    "test:removeItem": "wdio run src/core/config/wdio.conf.js --cucumberOpts.tags=\"@remove_item\""
   },
   "dependencies": {
     "chai": "^5.1.2",

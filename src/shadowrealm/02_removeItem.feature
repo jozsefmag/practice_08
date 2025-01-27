@@ -1,4 +1,6 @@
-Feature: User removes an item
+ Feature: User removes items
+
+ @remove_item
  Scenario: User removes item from a cart
   Given user is signed into the Swag Lab
   When user adds an item to the cart
